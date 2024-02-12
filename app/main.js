@@ -4,14 +4,16 @@ const net = require("net");
 console.log("Logs from your program will appear here!");
 
 // Uncomment this block to pass the first stage
-const server = net.createServer((connection) => {
+const server = net.createServer((socket) => {
   // Handle connection
   
-  connection.on("data" ,data =>{
-    connection.write('+PONG\r\n')
+  socket.on("data" ,data =>{
+    console.log('data received from client:', data.toString());
 
+    socket.write('+PONG\r\n')
   })
-  
+
+
 });
 
 server.listen(6379, "127.0.0.1");
