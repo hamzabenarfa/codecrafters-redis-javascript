@@ -7,8 +7,7 @@ console.log("Logs from your program will appear here!");
 
 // Uncomment this block to pass the first stage
 const server = net.createServer((socket) => {
-  // Handle connection
-  
+
   socket.on("data" ,data =>{
     const message = data.toString();
     const line = message.split("\r\n");
