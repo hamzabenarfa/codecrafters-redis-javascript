@@ -10,7 +10,16 @@ const server = net.createServer((socket) => {
   // Handle connection
   
   socket.on("data" ,data =>{
-    socket.write('+PONG\r\n')
+    const message = data.toString();
+    const line = message.split("\r\n");
+    const command = line[2].toLowerCase()
+    if(command === 'echo') {
+      const echoText = lines[4]
+      connection.write(`+${echoText}\r\n`);
+    } else {
+      connection.write(`+PONG\r\n`);
+    }
+    
   })
 
 
