@@ -15,9 +15,9 @@ const server = net.createServer((socket) => {
     const command = line[2].toLowerCase()
     if(command === 'echo') {
       const echoText = lines[4]
-      connection.write(`+${echoText}\r\n`);
+      socket.write(`+${echoText}\r\n`);
     } else {
-      connection.write(`+PONG\r\n`);
+      socket.write(`+PONG\r\n`);
     }
     
   })
