@@ -13,7 +13,7 @@ const server = net.createServer((socket) => {
     const line = message.split("\r\n");
     const command = line[2].toLowerCase()
     if(command === 'echo') {
-      const echoText = lines[4]
+      const echoText = line[4]
       socket.write(`+${echoText}\r\n`);
     } else {
       socket.write(`+PONG\r\n`);
